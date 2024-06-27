@@ -1,3 +1,14 @@
+
+Note:
+Astrologer EmailId: astro-ankit@astrogini.net
+User EmailId: swapnil2010@gmail.com
+Password: 12345678
+
+
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
