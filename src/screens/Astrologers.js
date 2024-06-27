@@ -44,7 +44,10 @@ const Astrologers = () => {
           isButtonDisabled: false,
         }));
 
-        setAstrologerUsers(usersWithButtonState);
+        const availableAstrologers = usersWithButtonState.filter(
+          astrologer => astrologer.chatOnline === true,
+        );
+        setAstrologerUsers(availableAstrologers);
         setIsLoading(false);
       } catch (error) {
         console.log('Error:', error);
@@ -172,7 +175,7 @@ const Astrologers = () => {
                     Exp: {item.yearsOfExperience} years
                   </Text>
                   <Text style={{color: '#b30000', fontSize: 15}}>
-                    ₹ {item.amount} /min
+                    ₹ {item.chatRate} /min
                   </Text>
                 </View>
                 <View

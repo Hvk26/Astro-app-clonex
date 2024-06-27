@@ -56,7 +56,10 @@ const CallList = () => {
           const verifiedAstrologers = response.data.filter(
             astrologer => astrologer.role === 'verified',
           );
-          setAstrologer(verifiedAstrologers);
+          const availableAstrologers = verifiedAstrologers.filter(
+            astrologer => astrologer.callOnline === true,
+          );
+          setAstrologer(availableAstrologers);
         }
       } catch (error) {
         console.log(error.message);
@@ -242,7 +245,7 @@ const CallList = () => {
                       Exp: {item.yearsOfExperience} years
                     </Text>
                     <Text style={{color: '#b30000', fontSize: 15}}>
-                      ₹ {item.amount || 0} /min
+                      ₹ {item.audioRate || 0} /min
                     </Text>
                   </View>
                   <View
