@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "909826651179",
+    "project_id": "astrogini-c3aa0",
+    "storage_bucket": "astrogini-c3aa0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909826651179:android:bf246c94e094f00505266e",
+        "android_client_info": {
+          "package_name": "com.astrologers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmd7UIrzpRfwP-Ir6PRf6ellmvioIgXIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

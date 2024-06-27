@@ -1,0 +1,106 @@
+{
+    "advanced_details": {
+        "abhijit_muhurta": {
+            "end": "12:53:43 PM",
+            "start": "12:05:43 PM"
+        },
+        "ahargana": 1871926.266957,
+        "disha_shool": "East",
+        "masa": {
+            "adhik_maasa": false,
+            "alternate_amanta_name": "Panguni",
+            "alternate_purnimanta_name": "Panguni",
+            "amanta_date": 13,
+            "amanta_end": "Mon Apr 08 2024",
+            "amanta_name": "Phalguna",
+            "amanta_number": 12,
+            "amanta_start": "Sun Mar 10 2024",
+            "ayana": "Uttrayana",
+            "moon_phase": "144/360",
+            "paksha": "Shukla Paksha",
+            "purnimanta_date": 28,
+            "purnimanta_end": "Mon Mar 25 2024",
+            "purnimanta_name": "Phalguna",
+            "purnimanta_number": 12,
+            "purnimanta_start": "Sat Feb 24 2024",
+            "real_ayana": "Uttrayana",
+            "ritu": "Vasant",
+            "ritu_tamil": "Ilavenil"
+        },
+        "moon_rise": "4:07:16 PM",
+        "moon_set": "12:07:16 AM",
+        "moon_yogini_nivas": "South",
+        "next_full_moon": "Mon Mar 25 2024",
+        "next_new_moon": "Mon Apr 08 2024",
+        "sun_rise": "6:24:25 AM",
+        "sun_set": "6:35:02 PM",
+        "vaara": "Shukra vaara",
+        "years": {
+            "kali": 5124,
+            "kali_samvaat_name": "Krodhi",
+            "kali_samvaat_number": 38,
+            "saka": 1945,
+            "saka_samvaat_name": "Shobhakruti",
+            "saka_samvaat_number": 37,
+            "vikram_samvaat": 2080,
+            "vikram_samvaat_name": "Anala",
+            "vikram_samvaat_number": 50
+        }
+    },
+    "ayanamsa": {
+        "name": "24 11'41\""
+    },
+    "date": "Fri Mar 22 2024",
+    "day": {
+        "name": "Friday"
+    },
+    "gulika": "07:55 AM to 09:26 AM",
+    "karana": {
+        "diety": "Mitra",
+        "end": "Fri Mar 22 2024 5:35:28 PM",
+        "lord": "Mangala",
+        "name": "Kaulava",
+        "next_karana": "Taitula",
+        "number": 3,
+        "special": "Time to declare marriage, propose and date, good time for women to start new work",
+        "start": "Fri Mar 22 2024 4:19:50 AM",
+        "type": "Benefic"
+    },
+    "nakshatra": {
+        "diety": "Pitrs",
+        "end": "Sat Mar 23 2024 4:02:43 AM",
+        "lord": "Ketu",
+        "meaning": "Great one. Associated with royalty, power, and authority.",
+        "name": "Magha",
+        "next_nakshatra": "PurvaPhalguni",
+        "number": 10,
+        "special": "Adhomukh Nakshatra",
+        "start": "Fri Mar 22 2024 1:01:44 AM",
+        "summary": "This nakshatra is of a mixed quality. Good for immediate actions, competition, work with metals. It is suitable to perform the routine activities, day-to-day duties, but it is not recommended to start new important deeds. Consult an astrologer for more information"
+    },
+    "rahukaal": "10:58 AM to 12:29 PM",
+    "rasi": {
+        "name": "Leo"
+    },
+    "tithi": {
+        "diety": "Kula Devta",
+        "end": "Sat Mar 23 2024 6:53:06 AM",
+        "meaning": "Thirteenth day after Amavasya (new moon) or Purnima (full moon).",
+        "name": "Trayodasi",
+        "next_tithi": "Chaturdasi",
+        "number": 13,
+        "special": "Good for work related to forgiveness and resolving conflicts.",
+        "start": "Fri Mar 22 2024 4:19:50 AM",
+        "type": "Shukla"
+    },
+    "yamakanta": "03:31 PM to 05:03 PM",
+    "yoga": {
+        "end": "Fri Mar 22 2024 6:08:19 PM",
+        "meaning": "Patience. Associated with patience, determination, and perseverance.",
+        "name": "Dhrithi",
+        "next_yoga": "Soola",
+        "number": 8,
+        "special": "Good for activities that require patience and determination.",
+        "start": "Thu Mar 21 2024 5:15:10 PM"
+    }
+}
