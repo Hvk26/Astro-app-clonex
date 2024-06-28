@@ -6,7 +6,8 @@ Password: 12345678
 
 
 
-install dependencies: npm install --force
+install dependencies: npm install --force .
+
 project run :  npm start
 
 
