@@ -44,6 +44,7 @@ const CallList = () => {
   const [astrologers, setAstrologer] = useState({});
   const [contacts, setContacts] = useState([]);
   const [showMore, setShowMore] = useState(false);
+  //gets wallet information
   const {walletBalance} = useContext(UserType);
   const navigation = useNavigation();
   const user = useAuth(state => state.user);
@@ -75,6 +76,8 @@ const CallList = () => {
   }, []);
 
   // console.log('000000000000000000000000000000', userId, userName);
+
+  // Logic for audio/video call to other user
   const initService = () => {
     const name = 'user_' + userId;
     ZegoUIKitPrebuiltCallService.init(
@@ -132,65 +135,7 @@ const CallList = () => {
         },
       },
     );
-
-    // ZegoUIKitPrebuiltCallService.init(
-    //   KeyCenter.ZegocloudKey.ZEGOCLOUD_APPID,
-    //   KeyCenter.ZegocloudKey.ZEGOCLOUD_SIGNIN,
-    //   userId,
-    //   userName,
-    //   [ZIM, ZPNs],
-    //   {
-    //     ringtoneConfig: {
-    //       incomingCallFileName: 'zego_incoming.wav',
-    //       outgoingCallFileName: 'zego_outgoing.wav',
-    //     },
-    //     // notifyWhenAppRunningInBackgroundOrQuit: true,
-    //     androidNotificationConfig: {
-    //       channelId: 'zego_video_call',
-    //       channelName: 'zego_video_call',
-    //     },
-    //     // requireConfig: data => {
-    //     //   return {
-    //     //     onHangUp: duration => {
-    //     //       console.log(duration);
-    //     //       navigation.goBack();
-    //     //     },
-    //     //   };
-    //     // },
-    //   },
-    // );
   };
-
-  // const getUsers = async () => {
-  //   try {
-  //     const userDocs = await firestore()
-  //       .collection('users')
-  //       .where('email', '!=', user.email)
-  //       .get();
-  //     const users = [];
-  //     userDocs.forEach(doc => {
-  //       users.push({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       });
-  //     });
-  //     setContacts(users);
-  //     console.log(userDocs);
-  //   } catch (error) {
-  //     console.log('error in fetching data', error);
-  //   }
-  // };
-  // console.log('astrologers=-=========================>', astrologers);
-
-  // const handleVideoCall = (id, amount) => {
-  //   console.log(id, amount);
-  //   if (walletBalance >= amount) {
-  //     navigation.navigate('CallScreen', {astrologerId: id, callRate: amount});
-  //   } else {
-  //     Alert.alert('Insufficient Balance', 'Please add funds to your wallet.');
-  //   }
-  // };
-  // const handleAudioCall = (id, amount) => {};
 
   return (
     <TouchableWithoutFeedback onPress={blankPressedHandle}>
@@ -256,6 +201,7 @@ const CallList = () => {
                       paddingHorizontal: 10,
                     }}>
                     <TouchableOpacity style={styles.button}>
+                      {/* Method for audio call invitation */}
                       <ZegoSendCallInvitationButton
                         invitees={[
                           {
@@ -279,6 +225,7 @@ const CallList = () => {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={[styles.button, {borderColor: Colors.pink1}]}>
+                      {/* Method for video call invitation */}
                       <ZegoSendCallInvitationButton
                         invitees={[
                           {
