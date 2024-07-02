@@ -6,5 +6,9 @@ Password: 12345678
 
 
 
+install dependencies: npm install --force 
+
+project run :  npm start
 
 
+calling Component : CallList.js
