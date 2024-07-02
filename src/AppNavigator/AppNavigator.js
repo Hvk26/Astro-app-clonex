@@ -53,7 +53,10 @@ import Membership from '../Astrologer/Cards/Settings/Feature/Membership';
 import Form16 from '../Astrologer/Cards/Settings/Feature/Form16';
 import PaySlip from '../Astrologer/Cards/Settings/Feature/PaySlip';
 import TrainingReels from '../Astrologer/Cards/Settings/Feature/TrainingReels';
-import UserMessages from '../components/ChatScreens/UserMessages';
+import Requests from '../Astrologer/Requests/Requests';
+import Calls from '../components/CallScreen/Calls';
+import AllChats from '../Astrologer/AllChats/AllChats';
+import UserDosha from '../components/ChatScreens/UserDosha';
 // import TestCall from '../components/CallScreen/TestCall';
 
 const Stack = createNativeStackNavigator();
@@ -865,10 +868,9 @@ const AppNavigator = () => {
           ),
         }}
       />
-
       <Stack.Screen
-        name="UserMessages"
-        component={UserMessages}
+        name="Requests"
+        component={Requests}
         options={{
           headerStyle: {
             backgroundColor: '#FBE300',
@@ -883,7 +885,74 @@ const AppNavigator = () => {
                 color: Colors.black7,
                 fontWeight: '400',
               }}>
-              User Messages
+              Requests
+            </Text>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Calls"
+        component={Calls}
+        options={{
+          headerStyle: {
+            backgroundColor: '#FBE300',
+            shadowColor: '#000',
+          },
+          headerBackButtonMenuEnabled: true,
+          //headerBackVisible: true,
+          headerTitle: () => (
+            <Text
+              style={{
+                fontSize: 17,
+                color: Colors.black7,
+                fontWeight: '400',
+              }}>
+              Calls
+            </Text>
+          ),
+        }}
+      />
+
+      <Stack.Screen
+        name="AllChats"
+        component={AllChats}
+        options={{
+          headerStyle: {
+            backgroundColor: '#FBE300',
+            shadowColor: '#000',
+          },
+          headerBackButtonMenuEnabled: true,
+          //headerBackVisible: true,
+          headerTitle: () => (
+            <Text
+              style={{
+                fontSize: 17,
+                color: Colors.black7,
+                fontWeight: '400',
+              }}>
+              All Chats
+            </Text>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="UserDosha"
+        component={UserDosha}
+        options={{
+          headerStyle: {
+            backgroundColor: '#FBE300',
+            shadowColor: '#000',
+          },
+          headerBackButtonMenuEnabled: true,
+          //headerBackVisible: true,
+          headerTitle: () => (
+            <Text
+              style={{
+                fontSize: 17,
+                color: Colors.black7,
+                fontWeight: '400',
+              }}>
+              Kundali Dosha
             </Text>
           ),
         }}

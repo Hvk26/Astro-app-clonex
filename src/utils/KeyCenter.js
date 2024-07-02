@@ -10,12 +10,13 @@ const astrologyApi = {
 };
 //VedicAstroApi
 const vedicastroapi = {
-  API_KEY: '4dbaf627-4974-5de6-a508-1d31b48436b6',
+  API_KEY: 'c13d5cc6-133b-52de-b36f-43df9da1c594',
 };
+// Audio/video key
 const ZegocloudKey = {
-  ZEGOCLOUD_APPID: 1120446852,
+  ZEGOCLOUD_APPID: 1099700760,
   ZEGOCLOUD_SIGNIN:
-    '4b60e9d73d45293aa39178fb303ac10c3e518481cf753a6d2022bff94219a90d',
+    '660f282448a0496ecb2eb61977dcb9ec2ac40223fab4cb052cf322a17ee8ec7c',
 };
 //live stream
 const LiveStreamKey = {

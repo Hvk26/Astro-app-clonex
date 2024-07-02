@@ -61,8 +61,8 @@ const UserChat = ({user}) => {
 
     return new Date(time).toLocaleString('en-US', options);
   };
-  const imageUrl =
-    'https://imgv3.fotor.com/images/gallery/a-man-profile-picture-with-blue-and-green-background-made-by-LinkedIn-Profile-Picture-Maker.jpg';
+  const imageUrl = 'https://avatar.iran.liara.run/public/boy';
+
   return (
     <BackButtonHandler>
       <Pressable

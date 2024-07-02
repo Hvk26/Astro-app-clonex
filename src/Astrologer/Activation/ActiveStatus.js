@@ -1,8 +1,91 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, View, Alert} from 'react-native';
+import React, {useContext, useState} from 'react';
 import {Colors} from '../../utils/Colors';
 import {Switch} from 'react-native-paper';
+import Service_URL from '../../utils/Constant';
+import axios from 'axios';
+import {UserType} from '../../UserContext';
+
 const ActiveStatus = () => {
+  const {userId} = useContext(UserType);
+  const [chatStatus, setChatStatus] = useState(false);
+  const [callStatus, setCallStatus] = useState(false);
+  const [isLive, setIsLive] = useState(false);
+  const [data, setData] = useState([]);
+
+  const toggleChatSwitch = async () => {
+    if (!userId) {
+      console.log('User ID is not provided');
+      return;
+    }
+    try {
+      setChatStatus(prevIsOnline => !prevIsOnline);
+
+      const response = await axios.put(
+        `${Service_URL}/astrologer/onlineChat/${userId}`,
+        {
+          chatStatus: !chatStatus,
+        },
+      );
+      if (response.status === 200) {
+        setData(response.data);
+        console.log('response>>>>>>>>', response.data);
+        Alert.alert('Online Status Changed');
+      }
+    } catch (error) {
+      console.log('Error updating data', error);
+    }
+  };
+
+  const toggleCallSwitch = async () => {
+    if (!userId) {
+      console.log('User ID is not provided');
+      return;
+    }
+    try {
+      setCallStatus(prevIsOnline => !prevIsOnline);
+      console.log('called..........');
+      const response = await axios.put(
+        `${Service_URL}/astrologer/onlineCall/${userId}`,
+        {
+          callStatus: !callStatus,
+        },
+      );
+      if (response.status === 200) {
+        setData(response.data);
+        console.log('called..........@@@2');
+
+        Alert.alert('Online Status Changed');
+      }
+    } catch (error) {
+      console.log('Error updating data', error);
+    }
+  };
+
+  const toggleIsLiveSwitch = async () => {
+    if (!userId) {
+      console.log('User ID is not provided');
+      return;
+    }
+    try {
+      setIsLive(prevIsOnline => !prevIsOnline);
+
+      const response = await axios.put(
+        `${Service_URL}/astrologer/isLive/${userId}`,
+        {
+          isLive: !isLive,
+        },
+      );
+      if (response.status === 200) {
+        setData(response.data);
+        console.log('response>>>>>>>>', response.data);
+        Alert.alert('Online Status Changed');
+      }
+    } catch (error) {
+      console.log('Error updating data', error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       {/* heading */}
@@ -55,7 +138,7 @@ const ActiveStatus = () => {
               alignContent: 'center',
               alignItems: 'center',
             }}>
-            <Text style={styles.contentHeading}>Video Call</Text>
+            <Text style={styles.contentHeading}>Live</Text>
             <Text style={{color: Colors.grey2, fontSize: 12}}>India </Text>
           </View>
         </View>
@@ -68,6 +151,8 @@ const ActiveStatus = () => {
               alignContent: 'center',
               alignItems: 'center',
             }}
+            onValueChange={toggleChatSwitch}
+            value={data?.chatOnline}
           />
           <Switch
             style={{
@@ -75,6 +160,8 @@ const ActiveStatus = () => {
               alignContent: 'center',
               alignItems: 'center',
             }}
+            onValueChange={toggleCallSwitch}
+            value={data?.callOnline}
           />
           <Switch
             style={{
@@ -82,6 +169,8 @@ const ActiveStatus = () => {
               alignContent: 'center',
               alignItems: 'center',
             }}
+            value={data?.isLive}
+            onValueChange={toggleIsLiveSwitch}
           />
         </View>
 

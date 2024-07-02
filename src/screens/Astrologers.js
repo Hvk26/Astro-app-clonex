@@ -21,11 +21,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import PopUpLogin from '../components/PopUp/PopUpLogin';
 import BackButtonPopUp from '../components/PopUp/BackButtonPopUp';
 import BackButtonHandler from '../components/BackButtonHandler/BackButtonHandler';
+import babelConfig from '../../babel.config';
 
 const Astrologers = () => {
   const navigation = useNavigation();
   const [astrologerUsers, setAstrologerUsers] = useState([]);
-  const {userId, setuserId} = useContext(UserType);
+  const {userId, setuserId, walletBalance} = useContext(UserType);
   const [isLoading, setIsLoading] = useState(true);
   // const [requestSent, setSentRequest] = useState(false);
   // const [isRequestSent, setIsRequestSent] = useState(false);
@@ -44,10 +45,12 @@ const Astrologers = () => {
           isButtonDisabled: false,
         }));
 
-        const availableAstrologers = usersWithButtonState.filter(
-          astrologer => astrologer.chatOnline === true,
-        );
-        setAstrologerUsers(availableAstrologers);
+        const onlineAstrologers = usersWithButtonState.filter(user => {
+          return user.chatOnline == true;
+        });
+
+        setAstrologerUsers(onlineAstrologers);
+
         setIsLoading(false);
       } catch (error) {
         console.log('Error:', error);
@@ -71,9 +74,18 @@ const Astrologers = () => {
   //   return true; // Prevent default back action
   // };
 
-  const handleRequest = async (currentId, selectedUserId) => {
+  const handleRequest = async (currentId, selectedUserId, rate) => {
     // Find the index of the user by selectedUserId
     const token = AsyncStorage.getItem('authToken');
+    console.log('rate>>>>>>>>>', rate);
+
+    if (walletBalance < rate) {
+      Alert.alert(
+        'Insufficient Balance',
+        'You do not have sufficient balance to send request.',
+      );
+      return;
+    }
 
     if (userId) {
       setIsLoginPopUpVisible(false);
@@ -185,7 +197,9 @@ const Astrologers = () => {
                   }}>
                   <View style={{height: 10}} />
                   <TouchableOpacity
-                    onPress={() => handleRequest(userId, item._id)}
+                    onPress={() =>
+                      handleRequest(userId, item._id, item.chatRate)
+                    }
                     style={styles.button}>
                     <Text style={styles.buttonText}>Chat</Text>
                   </TouchableOpacity>

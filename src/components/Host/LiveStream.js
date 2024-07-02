@@ -38,7 +38,7 @@ const LiveStream = () => {
     fetchAstrologers();
   }, []);
 
-  const onlineAstrologers = astrologerUsers.filter(user => user.isOnline);
+  const onlineAstrologers = astrologerUsers.filter(user => user.isLive == true);
   console.log('2', onlineAstrologers);
   return (
     <BackButtonHandler style={styles.container}>
@@ -66,7 +66,6 @@ const LiveStream = () => {
               />
               <View style={{}}>
                 <Text style={styles.astrologersName}>
-                  
                   {item.name.split(' ')[0]}
                 </Text>
                 <Text style={{color: '#000000', fontSize: 15}}>

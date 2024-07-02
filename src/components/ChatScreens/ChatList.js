@@ -8,7 +8,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import BackButtonHandler from '../BackButtonHandler/BackButtonHandler';
 
 const ChatList = () => {
-  navigation = useNavigation();
+  const navigation = useNavigation();
   const {userId, setUserId} = useContext(UserType);
   const [chatRequestUsers, setChatRequestUsers] = useState([]); // State to store chat request users
   const route = useRoute();
@@ -52,6 +52,7 @@ const ChatList = () => {
   }, []);
 
   const reverseList = [...chatRequestUsers].reverse();
+  console.log('Chat list', reverseList);
   return (
     <BackButtonHandler style={{padding: 10, marginHorizontal: 12}}>
       <ScrollView>

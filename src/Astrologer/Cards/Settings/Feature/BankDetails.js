@@ -33,12 +33,12 @@ const BankDetails = () => {
       }
 
       const response = await axios.post(
-        `${Service_URL}/astrologer/bank-details/${userId}`,
+        `${Service_URL}/astrologer/bank-request/${userId}`,
         {bankName, accountHolderName, accountNumber, ifscCode},
       );
 
       if (response.status === 200) {
-        Alert.alert('Bank details updated');
+        Alert.alert('Bank details updation request sent successfully');
         setBankName('');
         setAccountNumber('');
         setAccountHolderName('');

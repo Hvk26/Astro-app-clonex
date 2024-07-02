@@ -8,6 +8,7 @@ import {
   Pressable,
   Dimensions,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import React, {
   useState,
@@ -26,14 +27,25 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import Service_URL from '../../utils/Constant';
 import BackButtonHandler from '../BackButtonHandler/BackButtonHandler';
 import {Colors} from '../../utils/Colors';
+import axios from 'axios';
+import BackButtonWarning from '../BackButtonHandler/BackButtonWaring';
 const {width} = Dimensions.get('screen');
+
 const ChatMessages = () => {
   const [showEmojiselector, setShowEmojiSelector] = useState(false);
   const [selectedMessages, setSelectedMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [messageData, setMessageData] = useState([]);
   const [recipientData, setRecipientData] = useState();
-  const {userId, setUserId} = useContext(UserType);
+  const {userId, setUserId, walletBalance} = useContext(UserType);
+  // Manage Session
+  const [isSessionStart, setIsSessionStart] = useState(false);
+  const [astrologerRate, setAstrologerRate] = useState('');
+  const [callCost, setCallCost] = useState(0);
+  const [error, setError] = useState('');
+  // Timer
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
   const navigation = useNavigation();
   const route = useRoute();
   const recipientId = route.params;
@@ -41,6 +53,26 @@ const ChatMessages = () => {
   const scrollViewRef = useRef(null);
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const {recipientId} = route.params;
+        const response = await axios.get(
+          `${Service_URL}/userInfo/${recipientId}`,
+        );
+        const data = response.data.chatRate;
+
+        if (!data) {
+          setError('User not found');
+        } else {
+          setAstrologerRate(data);
+          setError(null);
+        }
+      } catch (error) {
+        setError('Error fetching user information');
+      }
+    };
+
+    fetchData();
     scrollToBottom();
   }, []);
 
@@ -228,8 +260,62 @@ const ChatMessages = () => {
     }
   };
 
+  const ChatAgain = () => {
+    return (
+      <View
+        style={{
+          width: '100%',
+          backgroundColor: Colors.yellow,
+          borderRadius: 10,
+          borderWidth: 0.7,
+          marginBottom: 10,
+        }}>
+        <TouchableOpacity
+          style={{alignItems: 'center', paddingVertical: 10}}
+          onPress={handleStartChatClick}>
+          <Text style={{color: '#000', fontWeight: '500', fontSize: 16}}>
+            Start Chat
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const handleStartChatClick = () => {
+    if (walletBalance < astrologerRate) {
+      Alert.alert(
+        'Insufficient Balance',
+        'You do not have sufficient balance to start the chat',
+      );
+      navigation.goBack();
+    } else {
+      timeStamp();
+      setIsSessionStart(true);
+      const callTimeInSeconds = (walletBalance / astrologerRate) * 60;
+      setTimeout(() => {
+        navigation.goBack();
+        Alert.alert(`Chat ended`);
+      }, callTimeInSeconds * 1000);
+    }
+  };
+
+  // Timer
+
+  const timeStamp = () => {
+    const interval = setInterval(() => {
+      setSeconds(prevSeconds => prevSeconds + 1);
+
+      if (seconds === 59) {
+        setMinutes(prevMinutes => prevMinutes + 1);
+        setSeconds(0);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  };
+
   return (
-    <BackButtonHandler>
+    <BackButtonWarning>
       <KeyboardAvoidingView
         style={{
           flex: 1,
@@ -237,6 +323,12 @@ const ChatMessages = () => {
           width: width - 7,
           alignSelf: 'center',
         }}>
+        <View style={{textAlign: 'center', alignSelf: 'center', paddingTop: 5}}>
+          <Text style={{color: Colors.black7, fontSize: 15}}>
+            {String(minutes).padStart(2, '0')}:
+            {String(seconds).padStart(2, '0')}
+          </Text>
+        </View>
         <ScrollView
           ref={scrollViewRef}
           contentContainerStyle={{flexGrow: 1}}
@@ -294,44 +386,49 @@ const ChatMessages = () => {
             }
           })}
         </ScrollView>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: 10,
-            paddingVertical: 5,
-            borderTopWidth: 1,
-            borderColor: '#dddddd',
-            marginBottom: showEmojiselector ? 0 : 15,
-          }}>
-          <Entypo
-            onPress={handleEmojiPress}
-            name="emoji-happy"
-            size={27}
-            color={Colors.black4}
-            style={{marginRight: 5}}
-          />
-          <TextInput
-            value={message}
-            onChangeText={text => setMessage(text)}
-            style={{
-              flex: 1,
-              height: 40,
-              borderWidth: 1,
-              borderColor: '#dddddd',
-              borderRadius: 20,
-              paddingHorizontal: 10,
-              marginRight: 10,
-              color: '#000',
-            }}
-            placeholderTextColor={'#000'}
-            placeholder="type your message here...."
-          />
 
-          <Pressable onPress={handleSend} disabled={message.trim() === ''}>
-            <Ionicons style={{}} name="send" size={27} color={'#000000'} />
-          </Pressable>
-        </View>
+        {isSessionStart ? (
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              paddingHorizontal: 10,
+              paddingVertical: 5,
+              borderTopWidth: 1,
+              borderColor: '#dddddd',
+              marginBottom: showEmojiselector ? 0 : 15,
+            }}>
+            <Entypo
+              onPress={handleEmojiPress}
+              name="emoji-happy"
+              size={27}
+              color={Colors.black4}
+              style={{marginRight: 5}}
+            />
+            <TextInput
+              value={message}
+              onChangeText={text => setMessage(text)}
+              style={{
+                flex: 1,
+                height: 40,
+                borderWidth: 1,
+                borderColor: '#dddddd',
+                borderRadius: 20,
+                paddingHorizontal: 10,
+                marginRight: 10,
+                color: '#000',
+              }}
+              placeholderTextColor={'#000'}
+              placeholder="type your message here.."
+            />
+            <Pressable onPress={handleSend} disabled={message.trim() === ''}>
+              <Ionicons style={{}} name="send" size={27} color={'#000000'} />
+            </Pressable>
+          </View>
+        ) : (
+          <ChatAgain />
+        )}
+
         {showEmojiselector && (
           <EmojiSelector
             onEmojiSelected={emoji => {
@@ -341,7 +438,7 @@ const ChatMessages = () => {
           />
         )}
       </KeyboardAvoidingView>
-    </BackButtonHandler>
+    </BackButtonWarning>
   );
 };
 

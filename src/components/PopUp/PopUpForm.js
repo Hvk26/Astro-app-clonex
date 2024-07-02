@@ -32,7 +32,7 @@ const PopUpForm = ({isVisible, onClose, onSubmit}) => {
   const [time, setTime] = useState('');
   const transparentColor = 'rgba(0, 0, 0, 0.9)';
   const navigation = useNavigation();
-
+  
   const handleFormSubmit = async () => {
     // Call the onSubmit callback with the form data
     const formData = {name, time, selectedDate, placeOfBirth};

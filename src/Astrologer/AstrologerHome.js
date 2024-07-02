@@ -41,6 +41,7 @@ const AstrologerHome = () => {
   const navigation = useNavigation();
   const [waitTime, setWaitTime] = useState('');
   // Online status of Astrologer
+
   const toggleSwitch = async () => {
     //console.log('Toggle switch called');
 
@@ -97,7 +98,6 @@ const AstrologerHome = () => {
       setError('User ID not provided');
       return;
     }
-
     const fetchData = async () => {
       try {
         const response = await axios.get(`${Service_URL}/userInfo/${userId}`);
@@ -115,6 +115,7 @@ const AstrologerHome = () => {
     };
     fetchData();
   }, []);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: () => (
@@ -165,7 +166,7 @@ const AstrologerHome = () => {
       <TimeTable />
       <GoLive userName={userData?.name} />
       <TouchableOpacity
-        onPress={() => navigation.navigate('ChatList')}
+        onPress={() => navigation.navigate('Requests')}
         style={{
           marginTop: 10,
           borderWidth: 0.3,
@@ -191,8 +192,9 @@ const AstrologerHome = () => {
           color={Colors.black7}
         />
       </TouchableOpacity>
+
       <TouchableOpacity
-        onPress={() => navigation.navigate('ChatScreen')}
+        onPress={() => navigation.navigate('AllChats')}
         style={{
           marginTop: 10,
           borderWidth: 0.3,
@@ -210,7 +212,7 @@ const AstrologerHome = () => {
         }}>
         <Ionicons name="chatbubble-ellipses" size={44} color={Colors.black7} />
         <Text style={{color: Colors.black7, fontSize: 18, fontWeight: '500'}}>
-          User Messages
+          User Chats
         </Text>
         <Ionicons
           name="chevron-forward-outline"

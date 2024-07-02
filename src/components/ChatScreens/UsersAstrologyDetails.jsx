@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import Service_URL from '../../utils/Constant';
 import axios from 'axios';
 import {Button} from 'react-native-paper';
@@ -18,7 +18,7 @@ import BackButtonHandler from '../BackButtonHandler/BackButtonHandler';
 import KeyCenter from '../../utils/KeyCenter';
 import Svg, {SvgXml} from 'react-native-svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import AntDesign from 'react-native-vector-icons/AntDesign';
 const {width} = Dimensions.get('screen');
 //import Svg, {Image} from 'react-native-svg';
 const UsersAstrologyDetails = () => {
@@ -30,6 +30,7 @@ const UsersAstrologyDetails = () => {
   const [chartType, setChartType] = useState('D1');
   const API_KEY = KeyCenter.vedicastroapi.API_KEY;
 
+  const navigation = useNavigation();
   // console.log('id', id);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const UsersAstrologyDetails = () => {
     };
     fetchData();
     getKundali();
-  }, [chartType]);
+  }, []);
 
   const url = `https://api.vedicastroapi.com/v3-json/horoscope/chart-image?dob=11/03/1994&tob=11:40&lat=11.76&lon=77.45&tz=5.5&div=${chartType}&color=%23fff&style=north&api_key=${API_KEY}&lang=en&font_size=20&font_style=roboto&colorful_planets=0&size=${width}&stroke=2&format=utf8`;
   const getKundali = async () => {
@@ -71,7 +72,7 @@ const UsersAstrologyDetails = () => {
       </View>
     );
   }
-
+  // console.log(svgData);
   const divisions = [
     {
       key: '1',
@@ -166,9 +167,32 @@ const UsersAstrologyDetails = () => {
     },
   ];
 
-  console.log(userData);
   return (
     <BackButtonHandler>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('UserDosha', userData)}
+        style={{
+          backgroundColor: Colors.buttonBackground,
+          marginTop: 20,
+          marginHorizontal: 20,
+          paddingVertical: 4,
+          paddingHorizontal: 20,
+          borderRadius: 20,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <Text
+          style={{
+            textAlign: 'center',
+            color: Colors.black8,
+            fontSize: 17,
+            fontWeight: '500',
+          }}>
+          Kundali Dosha
+        </Text>
+        <AntDesign name="right" size={24} color={Colors.black8} />
+      </TouchableOpacity>
       {/* <View
         style={{
           borderWidth: 0.7,

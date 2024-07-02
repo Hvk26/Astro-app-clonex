@@ -1,36 +1,36 @@
-import {StyleSheet, Text, View, Pressable, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Dimensions} from 'react-native';
 import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import {UserType} from '../../UserContext';
 import {useNavigation} from '@react-navigation/native';
 import Service_URL from '../../utils/Constant';
-import PopUpDetail from '../PopUp/PopUpDetail';
 import BackButtonHandler from '../BackButtonHandler/BackButtonHandler';
 import {Button} from 'react-native-paper';
 import {Colors} from '../../utils/Colors';
-
+import PopUpDetail from '../PopUp/PopUpDetail';
 const {width} = Dimensions.get('screen');
 
-const ChatRequest = ({item, chatRequestUsers, setChatRequestUsers}) => {
+const CallRequestHandler = ({item, chatRequestUsers, setChatRequestUsers}) => {
   const {userId, setUserId} = useContext(UserType);
   const [isPopupVisible, setPopupVisible] = useState(false);
-
   const navigation = useNavigation();
 
   const acceptRequest = async chatRequestId => {
     try {
-      const response = await axios.post(`${Service_URL}/chatRequest/accept`, {
-        senderId: chatRequestId,
-        recipientId: userId,
-      });
+      const response = await axios.post(
+        `${Service_URL}/user/callRequest/accept`,
+        {
+          senderId: chatRequestId,
+          recipientId: userId,
+        },
+      );
 
       if (response.ok) {
         setChatRequestUsers(
           chatRequestUsers.filter(request => request._Id !== chatRequestId),
         );
       }
-      navigation.navigate('ChatScreen');
-      
+      navigation.navigate('Calls');
     } catch (error) {
       console.log('error accepting the request', error);
     }
@@ -39,9 +39,6 @@ const ChatRequest = ({item, chatRequestUsers, setChatRequestUsers}) => {
   const openDetail = async chatRequestId => {
     navigation.navigate('UsersAstrologyDetails', {recipientId: chatRequestId});
   };
-
-
-
 
   return (
     <BackButtonHandler style={{flex: 1}}>
@@ -61,12 +58,12 @@ const ChatRequest = ({item, chatRequestUsers, setChatRequestUsers}) => {
             flex: 1,
             color: '#000',
           }}>
-          {item?.name} sent you chat request !!
+          {item.name} sent you Call request !!
         </Text>
         <View style={{flexDirection: 'row', gap: 5}}>
           <Button
             mode="contained"
-            onPress={() => acceptRequest(item._id)}
+            onPress={() => acceptRequest(item?._id)}
             labelStyle={{fontSize: 16}}
             buttonColor={Colors.primaryGreen}
             textColor={Colors.black7}>
@@ -94,6 +91,6 @@ const ChatRequest = ({item, chatRequestUsers, setChatRequestUsers}) => {
   );
 };
 
-export default ChatRequest;
+export default CallRequestHandler;
 
 const styles = StyleSheet.create({});

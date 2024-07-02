@@ -23,31 +23,30 @@ import * as ZIM from 'zego-zim-react-native';
 import * as ZPNs from 'zego-zpns-react-native';
 import KeyCenter from '../../utils/KeyCenter';
 import useAuth from '../../store/useAuth';
-import Feather from 'react-native-vector-icons/Feather';
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ZegoUIKitPrebuiltCall, {
   ONE_ON_ONE_VIDEO_CALL_CONFIG,
 } from '@zegocloud/zego-uikit-prebuilt-call-rn';
-import PopUpLogin from '../PopUp/PopUpLogin';
 
 const imageUrl =
   'https://imgv3.fotor.com/images/gallery/a-man-profile-picture-with-blue-and-green-background-made-by-LinkedIn-Profile-Picture-Maker.jpg';
-
 const CallList = () => {
   const {userId} = useContext(UserType);
+
   const viewRef = useRef(null);
+
   const blankPressedHandle = () => {
     viewRef.current.blur();
   };
 
-  const [astrologers, setAstrologer] = useState([]);
+  console.log('----------------------------?', userId);
+  const [astrologers, setAstrologer] = useState({});
   const [contacts, setContacts] = useState([]);
   const [showMore, setShowMore] = useState(false);
   const {walletBalance} = useContext(UserType);
   const navigation = useNavigation();
   const user = useAuth(state => state.user);
-  const [isLoginPopUpVisible, setIsLoginPopUpVisible] = useState(false);
   const userName = 'Anonymous';
 
   useEffect(() => {
@@ -55,10 +54,10 @@ const CallList = () => {
       try {
         const response = await axios.get(`${Service_URL}/astrologers`);
         if (response.status === 200) {
-          const onlineAstrologers = response.data.filter(
-            astrologer => astrologer.callOnline == true,
+          const verifiedAstrologers = response.data.filter(
+            astrologer => astrologer.role === 'verified',
           );
-          setAstrologer(onlineAstrologers);
+          setAstrologer(verifiedAstrologers);
         }
       } catch (error) {
         console.log(error.message);
@@ -68,110 +67,145 @@ const CallList = () => {
     fetchAstrologers();
   }, []);
 
-  // useEffect(() => {
-  //   initService();
-  //   // getUsers();
-  // }, []);
+  useEffect(() => {
+    initService();
+    // getUsers();
+  }, []);
 
   // console.log('000000000000000000000000000000', userId, userName);
-  // const initService = () => {
-  //   const name = 'user_' + userId;
-  //   ZegoUIKitPrebuiltCallService.init(
-  //     KeyCenter.ZegocloudKey.ZEGOCLOUD_APPID,
-  //     KeyCenter.ZegocloudKey.ZEGOCLOUD_SIGNIN,
-  //     userId,
-  //     userName,
-  //     [ZIM],
-  //     {
-  //       ringtoneConfig: {
-  //         incomingCallFileName: 'zego_incoming.mp3',
-  //         outgoingCallFileName: 'zego_outgoing.mp3',
-  //       },
-  //       avatarBuilder: () => {
-  //         return (
-  //           <View style={{width: '100%', height: '100%'}}>
-  //             <Image
-  //               style={{width: '100%', height: '100%'}}
-  //               resizeMode="cover"
-  //               source={{
-  //                 uri:
-  //                   `https://robohash.org/${userId}.png` ||
-  //                   'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714521600&semt=ais',
-  //               }}
-  //             />
-  //           </View>
-  //         );
-  //       },
-  //       requireConfig: data => {
-  //         return {
-  //           timingConfig: {
-  //             isDurationVisible: true,
-  //             onDurationUpdate: duration => {
-  //               console.log(
-  //                 '########CallWithInvitation onDurationUpdate',
-  //                 duration,
-  //               );
-  //               if (duration === 10 * 60) {
-  //                 ZegoUIKitPrebuiltCallService.hangUp();
-  //               }
-  //             },
-  //           },
-  //           topMenuBarConfig: {
-  //             buttons: [ZegoMenuBarButtonName.minimizingButton],
-  //           },
-  //           onWindowMinimized: () => {
-  //             console.log('[Demo]CallInvitation onWindowMinimized');
-  //             props.navigation.navigate('HomeScreen');
-  //           },
-  //           onWindowMaximized: () => {
-  //             console.log('[Demo]CallInvitation onWindowMaximized');
-  //             props.navigation.navigate('ZegoUIKitPrebuiltCallInCallScreen');
-  //           },
-  //         };
-  //       },
-  //     },
-  //   );
-  // };
+  const initService = () => {
+    const name = 'user_' + userId;
+    ZegoUIKitPrebuiltCallService.init(
+      KeyCenter.ZegocloudKey.ZEGOCLOUD_APPID,
+      KeyCenter.ZegocloudKey.ZEGOCLOUD_SIGNIN,
+      userId,
+      userName,
+      [ZIM],
+      {
+        ringtoneConfig: {
+          incomingCallFileName: 'zego_incoming.mp3',
+          outgoingCallFileName: 'zego_outgoing.mp3',
+        },
+        avatarBuilder: () => {
+          return (
+            <View style={{width: '100%', height: '100%'}}>
+              <Image
+                style={{width: '100%', height: '100%'}}
+                resizeMode="cover"
+                source={{
+                  uri:
+                    `https://robohash.org/${userId}.png` ||
+                    'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714521600&semt=ais',
+                }}
+              />
+            </View>
+          );
+        },
+        requireConfig: data => {
+          return {
+            timingConfig: {
+              isDurationVisible: true,
+              onDurationUpdate: duration => {
+                console.log(
+                  '########CallWithInvitation onDurationUpdate',
+                  duration,
+                );
+                if (duration === 10 * 60) {
+                  ZegoUIKitPrebuiltCallService.hangUp();
+                }
+              },
+            },
+            topMenuBarConfig: {
+              buttons: [ZegoMenuBarButtonName.minimizingButton],
+            },
+            onWindowMinimized: () => {
+              console.log('[Demo]CallInvitation onWindowMinimized');
+              props.navigation.navigate('HomeScreen');
+            },
+            onWindowMaximized: () => {
+              console.log('[Demo]CallInvitation onWindowMaximized');
+              props.navigation.navigate('ZegoUIKitPrebuiltCallInCallScreen');
+            },
+          };
+        },
+      },
+    );
 
-  const handleCallRequest = async (currentId, selectedUserId, rate) => {
-    console.log('>>>>>>>>>>>>>IDS', currentId, selectedUserId, rate);
-
-    if (walletBalance < rate) {
-      Alert.alert(
-        'Insufficient Balance',
-        'You do not have sufficient balance to Call.',
-      );
-      return;
-    }
-    if (userId) {
-      const response = await axios.post(`${Service_URL}/user/calling-request`, {
-        currentId,
-        selectedUserId,
-      });
-
-      if (response.status === 200) {
-        Alert.alert(
-          'Call Request Sent',
-          'Your call request has been sent successfully.',
-        );
-      }
-    } else {
-      setIsLoginPopUpVisible(true);
-      return;
-    }
+    // ZegoUIKitPrebuiltCallService.init(
+    //   KeyCenter.ZegocloudKey.ZEGOCLOUD_APPID,
+    //   KeyCenter.ZegocloudKey.ZEGOCLOUD_SIGNIN,
+    //   userId,
+    //   userName,
+    //   [ZIM, ZPNs],
+    //   {
+    //     ringtoneConfig: {
+    //       incomingCallFileName: 'zego_incoming.wav',
+    //       outgoingCallFileName: 'zego_outgoing.wav',
+    //     },
+    //     // notifyWhenAppRunningInBackgroundOrQuit: true,
+    //     androidNotificationConfig: {
+    //       channelId: 'zego_video_call',
+    //       channelName: 'zego_video_call',
+    //     },
+    //     // requireConfig: data => {
+    //     //   return {
+    //     //     onHangUp: duration => {
+    //     //       console.log(duration);
+    //     //       navigation.goBack();
+    //     //     },
+    //     //   };
+    //     // },
+    //   },
+    // );
   };
+
+  // const getUsers = async () => {
+  //   try {
+  //     const userDocs = await firestore()
+  //       .collection('users')
+  //       .where('email', '!=', user.email)
+  //       .get();
+  //     const users = [];
+  //     userDocs.forEach(doc => {
+  //       users.push({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       });
+  //     });
+  //     setContacts(users);
+  //     console.log(userDocs);
+  //   } catch (error) {
+  //     console.log('error in fetching data', error);
+  //   }
+  // };
+  // console.log('astrologers=-=========================>', astrologers);
+
+  // const handleVideoCall = (id, amount) => {
+  //   console.log(id, amount);
+  //   if (walletBalance >= amount) {
+  //     navigation.navigate('CallScreen', {astrologerId: id, callRate: amount});
+  //   } else {
+  //     Alert.alert('Insufficient Balance', 'Please add funds to your wallet.');
+  //   }
+  // };
+  // const handleAudioCall = (id, amount) => {};
 
   return (
     <TouchableWithoutFeedback onPress={blankPressedHandle}>
       <BackButtonHandler>
         <View style={{marginHorizontal: 10, marginBottom: 67, paddingTop: 20}}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate('VoiceCall')}>
+            <Text style={{color: '#000'}}>Call Now</Text>
+          </TouchableOpacity> */}
+
           <FlatList
             data={astrologers}
             renderItem={({item}) => (
               <TouchableOpacity
                 style={styles.astrologerContainer}
-                onPress={() =>
-                  navigation.navigate('AstrologerProfile', {user: item})
+                onPress={
+                  () => navigation.navigate('AstrologerProfile', {user: item})
+                  // console.log('///////////////////////////////////', item._id)
                 }>
                 <View
                   style={{
@@ -209,7 +243,7 @@ const CallList = () => {
                       Exp: {item.yearsOfExperience} years
                     </Text>
                     <Text style={{color: '#b30000', fontSize: 15}}>
-                      ₹ {item.audioRate || 0} /min
+                      ₹ {item.amount || 0} /min
                     </Text>
                   </View>
                   <View
@@ -219,12 +253,8 @@ const CallList = () => {
                       gap: 15,
                       paddingHorizontal: 10,
                     }}>
-                    <TouchableOpacity
-                      style={styles.button}
-                      onPress={() =>
-                        handleCallRequest(userId, item._id, item.audioRate)
-                      }>
-                      {/* <ZegoSendCallInvitationButton
+                    <TouchableOpacity style={styles.button}>
+                      <ZegoSendCallInvitationButton
                         invitees={[
                           {
                             userID: `${item._id}`,
@@ -232,11 +262,20 @@ const CallList = () => {
                           },
                         ]}
                         isVideoCall={false}
-                        resourseID={'zego_data'}
+                        // resourseID={'zego_data'}
+                      />
+
+                      {/* <ZegoSendCallInvitationButton
+                        invitees={invitees.map(inviteeID => {
+                          return {
+                            userID: inviteeID,
+                            userName: 'user_' + inviteeID,
+                          };
+                        })}
+                        isVideoCall={false}
                       /> */}
-                      <Text style={styles.buttonText}>Call</Text>
                     </TouchableOpacity>
-                    {/* <TouchableOpacity
+                    <TouchableOpacity
                       style={[styles.button, {borderColor: Colors.pink1}]}>
                       <ZegoSendCallInvitationButton
                         invitees={[
@@ -248,7 +287,7 @@ const CallList = () => {
                         isVideoCall={true}
                         resourseID={'zego_video_call'}
                       />
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -257,12 +296,6 @@ const CallList = () => {
             ItemSeparatorComponent={() => <View style={styles.separator} />}
           />
         </View>
-        {isLoginPopUpVisible && (
-          <PopUpLogin
-            isVisible={isLoginPopUpVisible}
-            onClose={() => setIsLoginPopUpVisible(false)}
-          />
-        )}
       </BackButtonHandler>
     </TouchableWithoutFeedback>
   );
@@ -307,12 +340,15 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#ffffff',
-    borderRadius: 15,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
     borderColor: '#007300',
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    gap: 10,
   },
   buttonText: {
     color: '#007300',
@@ -320,8 +356,5 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     alignItems: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 5,
-    borderRadius: 10,
   },
 });

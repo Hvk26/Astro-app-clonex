@@ -1,111 +1,398 @@
-{
-    "config": {
-        "adapter": [
-            "xhr",
-            "http"
+[
+    {
+        "main_dasha": "Sagittarius",
+        "main_dasha_lord": "Jupiter",
+        "sub_dasha_end_dates": [
+            "Wed Oct 02 2024",
+            "Sun Mar 02 2025",
+            "Sat Aug 02 2025",
+            "Fri Jan 02 2026",
+            "Tue Jun 02 2026",
+            "Mon Nov 02 2026",
+            "Fri Apr 02 2027",
+            "Thu Sep 02 2027",
+            "Wed Feb 02 2028",
+            "Sun Jul 02 2028",
+            "Sat Dec 02 2028",
+            "Wed May 02 2029"
         ],
-        "data": undefined,
-        "env": {
-            "Blob": [Function Blob
-            ],
-            "FormData": [Function FormData
-            ]
-        },
-        "headers": [Object
+        "sub_dasha_list": [
+            "Scorpio",
+            "Libra",
+            "Virgo",
+            "Leo",
+            "Cancer",
+            "Gemini",
+            "Taurus",
+            "Aries",
+            "Pisces",
+            "Aquarius",
+            "Capricorn",
+            "Sagittarius"
         ],
-        "maxBodyLength": -1,
-        "maxContentLength": -1,
-        "method": "get",
-        "timeout": 0,
-        "transformRequest": [
-            [Function transformRequest
-            ]
-        ],
-        "transformResponse": [
-            [Function transformResponse
-            ]
-        ],
-        "transitional": {
-            "clarifyTimeoutError": false,
-            "forcedJSONParsing": true,
-            "silentJSONParsing": true
-        },
-        "url": "https://api.vedicastroapi.com/v3-json/horoscope/chart-image?dob=11/03/1994&tob=11:40&lat=11.76&lon=77.45&tz=5.5&div=D1&color=%23fff&style=north&api_key=4dbaf627-4974-5de6-a508-1d31b48436b6&lang=en&font_size=12&font_style=roboto&colorful_planets=0&size=300&stroke=2&format=utf8",
-        "validateStatus": [Function validateStatus
-        ],
-        "xsrfCookieName": "XSRF-TOKEN",
-        "xsrfHeaderName": "X-XSRF-TOKEN"
+        "sub_dasha_start_date": "Thu May 02 2024"
     },
-    "data": "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
-   <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-   <!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">
-   <svg height=\"300\" width=\"300\" xmlns=\"http://www.w3.org/2000/svg\">
-        <line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"300\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-        <line x1=\"300\" y1=\"0\" x2=\"0\" y2=\"300\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-
-        <line x1=\"0.9\" y1=\"0\" x2=\"0.9\" y2=\"300\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-        <line x1=\"0\" y1=\"298.8\" x2=\"300\" y2=\"298.8\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-        <line x1=\"298.8\" y1=\"300\" x2=\"298.8\" y2=\"0\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-
-            <line x1=\"0\" y1=\"0.9\" x2=\"300\" y2=\"0.9\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"0\" x2=\"0\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"0\" x2=\"300\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"300\" x2=\"300\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"300\" x2=\"0\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <text x=\"119\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#FF7E41;font-weight:bold \">As</text><text x=\"169\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#C874FF;font-weight:bold \">Ke</text><text x=\"69\" y= \"271.4318181818182\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;fill:#d8a815;font-size: 10.8px;font-weight:bold \">Ju<tspan style=\"font-size:8px\">(R)</tspan></text><text x=\"144\" y= \"228\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#41C5FF;font-weight:bold \">Ra</text><text x=\"181.5\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#eda200;font-weight:bold \">Su</text><text x=\"219\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#A164C6;font-weight:bold \">Mo</text><text x=\"256.5\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#FF4747;font-weight:bold \">Ma</text><text x=\"219\" y= \"115.5\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;fill:#5c5cff;font-size: 10.8px;font-weight:bold \">Me</text><text x=\"219\" y= \"190.5\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;fill:#787878;font-size: 10.8px;font-weight:bold \">Sa</text><text x=\"280.875\" y= \"32\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;font-size: 10.8px;fill:#ff4263;font-weight:bold \">Ve</text>
-
-            <text x=\"150\" y= \"138\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;font-size: 10.8px; \">2 </text>
-            <text x=\"75\" y= \"66\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;font-size: 10.8px; \">3 </text>
-        <text x=\"63\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:end;fill:#919191;font-size: 10.8px;\">4 </text>
-
-        <text x=\"138\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:end;fill:#919191;font-size: 10.8px; \">5 </text>
-        <text x=\"63\" y= \"228\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:end;fill:#919191;font-size: 10.8px; \">6 </text>
-        <text x=\"75\" y= \"243.00000000000003\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;letter-spacing: -1px;font-size: 10.8px; \">7 </text>
-
-        <text x=\"150\" y= \"174\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191 ;letter-spacing: -1px;font-size: 10.8px;\">8 </text>
-        <text x=\"222\" y= \"243.00000000000003\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;letter-spacing: -1px;font-size: 10.8px;\">9 </text>
-        <text x=\"231\" y= \"228\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:start;fill:#919191;letter-spacing: -1px;font-size: 10.8px; \">10 </text>
-
-        <text x=\"159\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:start;fill:#919191;letter-spacing: -1px;font-size: 10.8px; \">11 </text>
-        <text x=\"234\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:start;fill:#919191;font-size: 10.8px; \">12 </text>
-        <text x=\"222\" y= \"66\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;font-size: 10.8px; \">1 </text>
-
-        </svg>
-
-
-
- 
-   
-  
-   <svg height=\"300\" width=\"300\" xmlns=\"http://www.w3.org/2000/svg\">
-        <line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"300\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-        <line x1=\"300\" y1=\"0\" x2=\"0\" y2=\"300\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-
-        <line x1=\"0.9\" y1=\"0\" x2=\"0.9\" y2=\"300\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-        <line x1=\"0\" y1=\"298.8\" x2=\"300\" y2=\"298.8\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-        <line x1=\"298.8\" y1=\"300\" x2=\"298.8\" y2=\"0\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-
-            <line x1=\"0\" y1=\"0.9\" x2=\"300\" y2=\"0.9\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"0\" x2=\"0\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"0\" x2=\"300\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"300\" x2=\"300\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <line x1=\"150\" y1=\"300\" x2=\"0\" y2=\"150\" style=\"stroke:rgb(0, 0, 0);stroke-width:2\" />
-            <text x=\"119\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#FF7E41;font-weight:bold \">As</text><text x=\"169\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#C874FF;font-weight:bold \">Ke</text><text x=\"69\" y= \"271.4318181818182\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;fill:#d8a815;font-size: 10.8px;font-weight:bold \">Ju<tspan style=\"font-size:8px\">(R)</tspan></text><text x=\"144\" y= \"228\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#41C5FF;font-weight:bold \">Ra</text><text x=\"181.5\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#eda200;font-weight:bold \">Su</text><text x=\"219\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#A164C6;font-weight:bold \">Mo</text><text x=\"256.5\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;font-size: 10.8px;align-items: center;fill:#FF4747;font-weight:bold \">Ma</text><text x=\"219\" y= \"115.5\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;fill:#5c5cff;font-size: 10.8px;font-weight:bold \">Me</text><text x=\"219\" y= \"190.5\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;fill:#787878;font-size: 10.8px;font-weight:bold \">Sa</text><text x=\"280.875\" y= \"32\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;display: flex;justify-content: center;align-items: center;font-size: 10.8px;fill:#ff4263;font-weight:bold \">Ve</text>
-
-            <text x=\"150\" y= \"138\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;font-size: 10.8px; \">2 </text>
-            <text x=\"75\" y= \"66\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;font-size: 10.8px; \">3 </text>
-        <text x=\"63\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:end;fill:#919191;font-size: 10.8px;\">4 </text>
-
-        <text x=\"138\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:end;fill:#919191;font-size: 10.8px; \">5 </text>
-        <text x=\"63\" y= \"228\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:end;fill:#919191;font-size: 10.8px; \">6 </text>
-        <text x=\"75\" y= \"243.00000000000003\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;letter-spacing: -1px;font-size: 10.8px; \">7 </text>
-
-        <text x=\"150\" y= \"174\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191 ;letter-spacing: -1px;font-size: 10.8px;\">8 </text>
-        <text x=\"222\" y= \"243.00000000000003\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;letter-spacing: -1px;font-size: 10.8px;\">9 </text>
-        <text x=\"231\" y= \"228\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:start;fill:#919191;letter-spacing: -1px;font-size: 10.8px; \">10 </text>
-
-        <text x=\"159\" y= \"153\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:start;fill:#919191;letter-spacing: -1px;font-size: 10.8px; \">11 </text>
-        <text x=\"234\" y= \"78\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:start;fill:#919191;font-size: 10.8px; \">12 </text>
-        <text x=\"222\" y= \"66\" style = \"font-family: 'roboto','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-anchor:middle;fill:#919191;font-size: 10.8px; \">1 </text>
-
-        </svg>
+    {
+        "main_dasha": "Scorpio",
+        "main_dasha_lord": "Mars",
+        "sub_dasha_end_dates": [
+            "Sat Mar 02 2030",
+            "Thu Jan 02 2031",
+            "Sun Nov 02 2031",
+            "Thu Sep 02 2032",
+            "Sat Jul 02 2033",
+            "Tue May 02 2034",
+            "Fri Mar 02 2035",
+            "Wed Jan 02 2036",
+            "Sun Nov 02 2036",
+            "Wed Sep 02 2037",
+            "Fri Jul 02 2038",
+            "Mon May 02 2039"
+        ],
+        "sub_dasha_list": [
+            "Libra",
+            "Virgo",
+            "Leo",
+            "Cancer",
+            "Gemini",
+            "Taurus",
+            "Aries",
+            "Pisces",
+            "Aquarius",
+            "Capricorn",
+            "Sagittarius",
+            "Scorpio"
+        ],
+        "sub_dasha_start_date": "Wed May 02 2029"
+    },
+    {
+        "main_dasha": "Libra",
+        "main_dasha_lord": "Venus",
+        "sub_dasha_end_dates": [
+            "Wed Nov 02 2039",
+            "Wed May 02 2040",
+            "Fri Nov 02 2040",
+            "Thu May 02 2041",
+            "Sat Nov 02 2041",
+            "Fri May 02 2042",
+            "Sun Nov 02 2042",
+            "Sat May 02 2043",
+            "Mon Nov 02 2043",
+            "Mon May 02 2044",
+            "Wed Nov 02 2044",
+            "Tue May 02 2045"
+        ],
+        "sub_dasha_list": [
+            "Scorpio",
+            "Sagittarius",
+            "Capricorn",
+            "Aquarius",
+            "Pisces",
+            "Aries",
+            "Taurus",
+            "Gemini",
+            "Cancer",
+            "Leo",
+            "Virgo",
+            "Libra"
+        ],
+        "sub_dasha_start_date": "Mon May 02 2039"
+    },
+    {
+        "main_dasha": "Virgo",
+        "main_dasha_lord": "Mercury",
+        "sub_dasha_end_dates": [
+            "Thu Nov 02 2045",
+            "Wed May 02 2046",
+            "Fri Nov 02 2046",
+            "Thu May 02 2047",
+            "Sat Nov 02 2047",
+            "Sat May 02 2048",
+            "Mon Nov 02 2048",
+            "Sun May 02 2049",
+            "Tue Nov 02 2049",
+            "Mon May 02 2050",
+            "Wed Nov 02 2050",
+            "Tue May 02 2051"
+        ],
+        "sub_dasha_list": [
+            "Libra",
+            "Scorpio",
+            "Sagittarius",
+            "Capricorn",
+            "Aquarius",
+            "Pisces",
+            "Aries",
+            "Taurus",
+            "Gemini",
+            "Cancer",
+            "Leo",
+            "Virgo"
+        ],
+        "sub_dasha_start_date": "Tue May 02 2045"
+    },
+    {
+        "main_dasha": "Leo",
+        "main_dasha_lord": "Sun",
+        "sub_dasha_end_dates": [
+            "Sat Sep 02 2051",
+            "Tue Jan 02 2052",
+            "Thu May 02 2052",
+            "Mon Sep 02 2052",
+            "Thu Jan 02 2053",
+            "Fri May 02 2053",
+            "Tue Sep 02 2053",
+            "Fri Jan 02 2054",
+            "Sat May 02 2054",
+            "Wed Sep 02 2054",
+            "Sat Jan 02 2055",
+            "Sun May 02 2055"
+        ],
+        "sub_dasha_list": [
+            "Virgo",
+            "Libra",
+            "Scorpio",
+            "Sagittarius",
+            "Capricorn",
+            "Aquarius",
+            "Pisces",
+            "Aries",
+            "Taurus",
+            "Gemini",
+            "Cancer",
+            "Leo"
+        ],
+        "sub_dasha_start_date": "Tue May 02 2051"
+    },
+    {
+        "main_dasha": "Cancer",
+        "main_dasha_lord": "Moon",
+        "sub_dasha_end_dates": [
+            "Sat Oct 02 2055",
+            "Thu Mar 02 2056",
+            "Wed Aug 02 2056",
+            "Tue Jan 02 2057",
+            "Sat Jun 02 2057",
+            "Fri Nov 02 2057",
+            "Tue Apr 02 2058",
+            "Mon Sep 02 2058",
+            "Sun Feb 02 2059",
+            "Wed Jul 02 2059",
+            "Tue Dec 02 2059",
+            "Sun May 02 2060"
+        ],
+        "sub_dasha_list": [
+            "Gemini",
+            "Taurus",
+            "Aries",
+            "Pisces",
+            "Aquarius",
+            "Capricorn",
+            "Sagittarius",
+            "Scorpio",
+            "Libra",
+            "Virgo",
+            "Leo",
+            "Cancer"
+        ],
+        "sub_dasha_start_date": "Sun May 02 2055"
+    },
+    {
+        "main_dasha": "Gemini",
+        "main_dasha_lord": "Mercury",
+        "sub_dasha_end_dates": [
+            "Wed Feb 02 2061",
+            "Wed Nov 02 2061",
+            "Wed Aug 02 2062",
+            "Wed May 02 2063",
+            "Sat Feb 02 2064",
+            "Sun Nov 02 2064",
+            "Sun Aug 02 2065",
+            "Sun May 02 2066",
+            "Wed Feb 02 2067",
+            "Wed Nov 02 2067",
+            "Thu Aug 02 2068",
+            "Thu May 02 2069"
+        ],
+        "sub_dasha_list": [
+            "Taurus",
+            "Aries",
+            "Pisces",
+            "Aquarius",
+            "Capricorn",
+            "Sagittarius",
+            "Scorpio",
+            "Libra",
+            "Virgo",
+            "Leo",
+            "Cancer",
+            "Gemini"
+        ],
+        "sub_dasha_start_date": "Sun May 02 2060"
+    },
+    {
+        "main_dasha": "Taurus",
+        "main_dasha_lord": "Venus",
+        "sub_dasha_end_dates": [
+            "Wed Apr 02 2070",
+            "Mon Mar 02 2071",
+            "Tue Feb 02 2072",
+            "Mon Jan 02 2073",
+            "Sat Dec 02 2073",
+            "Fri Nov 02 2074",
+            "Wed Oct 02 2075",
+            "Wed Sep 02 2076",
+            "Mon Aug 02 2077",
+            "Sat Jul 02 2078",
+            "Fri Jun 02 2079",
+            "Thu May 02 2080"
+        ],
+        "sub_dasha_list": [
+            "Aries",
+            "Pisces",
+            "Aquarius",
+            "Capricorn",
+            "Sagittarius",
+            "Scorpio",
+            "Libra",
+            "Virgo",
+            "Leo",
+            "Cancer",
+            "Gemini",
+            "Taurus"
+        ],
+        "sub_dasha_start_date": "Thu May 02 2069"
+    },
+    {
+        "main_dasha": "Aries",
+        "main_dasha_lord": "Mars",
+        "sub_dasha_end_dates": [
+            "Wed Apr 02 2081",
+            "Mon Mar 02 2082",
+            "Tue Feb 02 2083",
+            "Sun Jan 02 2084",
+            "Sat Dec 02 2084",
+            "Fri Nov 02 2085",
+            "Wed Oct 02 2086",
+            "Tue Sep 02 2087",
+            "Mon Aug 02 2088",
+            "Sat Jul 02 2089",
+            "Fri Jun 02 2090",
+            "Wed May 02 2091"
+        ],
+        "sub_dasha_list": [
+            "Taurus",
+            "Gemini",
+            "Cancer",
+            "Leo",
+            "Virgo",
+            "Libra",
+            "Scorpio",
+            "Sagittarius",
+            "Capricorn",
+            "Aquarius",
+            "Pisces",
+            "Aries"
+        ],
+        "sub_dasha_start_date": "Thu May 02 2080"
+    },
+    {
+        "main_dasha": "Pisces",
+        "main_dasha_lord": "Jupiter",
+        "sub_dasha_end_dates": [
+            "Sun Mar 02 2092",
+            "Fri Jan 02 2093",
+            "Mon Nov 02 2093",
+            "Thu Sep 02 2094",
+            "Sat Jul 02 2095",
+            "Wed May 02 2096",
+            "Sat Mar 02 2097",
+            "Thu Jan 02 2098",
+            "Sun Nov 02 2098",
+            "Wed Sep 02 2099",
+            "Fri Jul 02 2100",
+            "Mon May 02 2101"
+        ],
+        "sub_dasha_list": [
+            "Aries",
+            "Taurus",
+            "Gemini",
+            "Cancer",
+            "Leo",
+            "Virgo",
+            "Libra",
+            "Scorpio",
+            "Sagittarius",
+            "Capricorn",
+            "Aquarius",
+            "Pisces"
+        ],
+        "sub_dasha_start_date": "Wed May 02 2091"
+    },
+    {
+        "main_dasha": "Aquarius",
+        "main_dasha_lord": "Saturn",
+        "sub_dasha_end_dates": [
+            "Tue May 02 2102",
+            "Wed May 02 2103",
+            "Fri May 02 2104",
+            "Sat May 02 2105",
+            "Sun May 02 2106",
+            "Mon May 02 2107",
+            "Wed May 02 2108",
+            "Thu May 02 2109",
+            "Fri May 02 2110",
+            "Sat May 02 2111",
+            "Mon May 02 2112",
+            "Tue May 02 2113"
+        ],
+        "sub_dasha_list": [
+            "Pisces",
+            "Aries",
+            "Taurus",
+            "Gemini",
+            "Cancer",
+            "Leo",
+            "Virgo",
+            "Libra",
+            "Scorpio",
+            "Sagittarius",
+            "Capricorn",
+            "Aquarius"
+        ],
+        "sub_dasha_start_date": "Mon May 02 2101"
+    },
+    {
+        "main_dasha": "Capricorn",
+        "main_dasha_lord": "Saturn",
+        "sub_dasha_end_dates": [
+            "Mon Apr 02 2114",
+            "Sat Mar 02 2115",
+            "Sun Feb 02 2116",
+            "Sat Jan 02 2117",
+            "Thu Dec 02 2117",
+            "Wed Nov 02 2118",
+            "Mon Oct 02 2119",
+            "Mon Sep 02 2120",
+            "Sat Aug 02 2121",
+            "Thu Jul 02 2122",
+            "Wed Jun 02 2123",
+            "Tue May 02 2124"
+        ],
+        "sub_dasha_list": [
+            "Sagittarius",
+            "Scorpio",
+            "Libra",
+            "Virgo",
+            "Leo",
+            "Cancer",
+            "Gemini",
+            "Taurus",
+            "Aries",
+            "Pisces",
+            "Aquarius",
+            "Capricorn"
+        ],
+        "sub_dasha_start_date": "Tue May 02 2113"
+    }
+]

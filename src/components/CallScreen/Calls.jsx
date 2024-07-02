@@ -10,20 +10,20 @@ import React, {useState, useContext, useEffect, useLayoutEffect} from 'react';
 import {UserType} from '../../UserContext';
 import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
-import UserChat from './UserChat';
 import Service_URL from '../../utils/Constant';
 import BackButtonHandler from '../BackButtonHandler/BackButtonHandler';
+import UserCalls from './UserCalls';
 
-const ChatScreen = () => {
-  const [acceptedChat, setAcceptedChat] = useState([]);
+const Calls = () => {
+  const [acceptedCalls, setAcceptedCalls] = useState([]);
   const {userId, setUserId} = useContext(UserType);
   const navigation = useNavigation();
 
   useEffect(() => {
-    const acceptedChatList = async () => {
+    const acceptedCallList = async () => {
       try {
         const response = await axios.get(
-          `${Service_URL}/acceptedChatList/${userId}`,
+          `${Service_URL}/user/acceptedCallList/${userId}`,
         );
 
         if (response.status === 200) {
@@ -35,30 +35,14 @@ const ChatScreen = () => {
             return response.data.find(user => user._id === userId);
           });
 
-          setAcceptedChat(uniqueUsers);
+          setAcceptedCalls(uniqueUsers);
         }
       } catch (error) {
         console.log('Error in showing chat list', error);
       }
     };
-
-    acceptedChatList();
-  });
-
-  // useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerTitle: () => (
-  //       <Text
-  //         style={{
-  //           fontSize: 17,
-  //           color: '#000000',
-  //           fontWeight: 500,
-  //         }}>
-          
-  //       </Text>
-  //     ),
-  //   });
-  // }, []);
+    acceptedCallList();
+  }, []);
 
   if (!userId) {
     return (
@@ -94,8 +78,8 @@ const ChatScreen = () => {
     <BackButtonHandler>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{marginTop: 5, marginHorizontal: 5}}>
-          {acceptedChat.map((user, index) => (
-            <UserChat key={index} user={user} />
+          {acceptedCalls.map((user, index) => (
+            <UserCalls key={index} user={user} />
           ))}
         </View>
       </ScrollView>
@@ -103,4 +87,6 @@ const ChatScreen = () => {
   );
 };
 
-export default ChatScreen;
+export default Calls;
+
+const styles = StyleSheet.create({});
