@@ -212,7 +212,7 @@ const AstrologerHome = () => {
         }}>
         <Ionicons name="chatbubble-ellipses" size={44} color={Colors.black7} />
         <Text style={{color: Colors.black7, fontSize: 18, fontWeight: '500'}}>
-          User Chats
+          User Chats & Calls
         </Text>
         <Ionicons
           name="chevron-forward-outline"

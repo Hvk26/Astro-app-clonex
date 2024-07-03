@@ -17,7 +17,7 @@ const CallScreen = () => {
 
   useEffect(() => {
     const callTimeInSeconds = (walletBalance / callRate) * 60;
-    
+
     const timeoutId = setTimeout(() => {
       navigation.goBack();
       Alert.alert(`Call cost ${callCost}`);
@@ -39,11 +39,12 @@ const CallScreen = () => {
     };
     fetchWalletId();
   }, []);
-  
+
   useEffect(() => {
     const cost = (callDuration / 60) * callRate; // Convert call duration to minutes
     setCallCost(cost);
   }, [callDuration, callRate]);
+
   return (
     <View style={styles.page}>
       <View style={styles.cameraPreview} />

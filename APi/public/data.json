@@ -1,0 +1,32 @@
+{
+    "usersData": {
+        "astrologers": "Astrologers",
+        "astroNumber": "5000+",
+        "calls": "Call Mins",
+        "callNumber": "65 Lakh+",
+        "users": "Total Users",
+        "userNumber": "50000+",
+        "chats": "Total Chats",
+        "chatNumber": "85 Lakh+"
+    },
+    "testimonials": [
+        {
+            "key": 1,
+            "name": "Shreya",
+            "city": "Varanashi, India",
+            "text": "The Astrogini has been a game-changer for me. Its personalized horoscope readings and expert predictions have provided invaluable insights and guidance in my life decisions. From career choices to relationships, this app has become my trusted advisor. Highly recommended for anyone seeking clarity and direction."
+        },
+        {
+            "key": 2,
+            "name": "Swapnil",
+            "city": "Lucknow, India",
+            "text": "The Astrogini has been a game-changer for me. Its personalized horoscope readings and expert predictions have provided invaluable insights and guidance in my life decisions. From career choices to relationships, this app has become my trusted advisor. Highly recommended for anyone seeking clarity and direction."
+        },
+        {
+            "key": 3,
+            "name": "Piyush",
+            "city": "Pune, India",
+            "text": "The Astrogini has been a game-changer for me. Its personalized horoscope readings and expert predictions have provided invaluable insights and guidance in my life decisions. From career choices to relationships, this app has become my trusted advisor. Highly recommended for anyone seeking clarity and direction."
+        }
+    ]
+}
